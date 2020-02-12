@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.collections.FXCollections?>
+
+<!-- fx:controller attribute on the furthest out element of fxml gives the location of the controller for this fxml file.
+i.e. the class that controlls the components from this file -->
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="com.green44.controller.StarterCode" fitToWidth="true">
+    <!-- scrollpane adds a scrollbar -->
+    <content>
+        <GridPane alignment="center">
+            <StackPane prefHeight="700.0" prefWidth="800.0">
+                <!-- stackpane allows elements to be stacked on top of eachother. used to position the back to main menu buttons
+                 at the top and bottom of the page.-->
+                <VBox>
+                    <!-- all the elements above are used to make the content centered within the page and adding a scrollbar.
+                    Use the stackPane to position the back buttons outside the flow of the main content -->
+
+                    <!-- the styleClass attribute applies CSS styles to the component. the styles will be in one of the
+                    css files imported at the bottom of this fxml file -->
+                    <HBox alignment="CENTER" styleClass="titleContent"> <!-- HBox arranges elements horizontally -->
+                        <Label styleClass="bigTitle" text="TASK" />
+                    </HBox>
+
+                    <VBox styleClass="mainContent">
+                        <Label text="Get Started" styleClass="subtitle"/>
+                        <Separator/> <!-- Draws a line across the screen -->
+                        <VBox styleClass="subContent">
+                            <Text wrappingWidth="750" styleClass="detail">
+                                Add info about task here. Couple of lines of detail is good. The styleClass of detail sets
+                                a new font size for this text. Can be seen in fontSizes.css. Wrapping width is the number of
+                                pixels before the text moves onto a new line.
+                            </Text>
+                            <StackPane styleClass="btnContainer"> <!-- allows elements to be stacked on top of eachother -->
+                                <Button fx:id="stopBtn" styleClass="startStopBtn" text="Stop" onMouseClicked="#endSearch"
+                                        visible="false"/>
+                                <Button fx:id="startBtn" styleClass="startStopBtn" text="Start Drawing!"
+                                        onMouseClicked="#startSearching"/>
+                            </StackPane>
+                            <HBox alignment="CENTER">
+                                <CheckBox fx:id="checkBox" text="Show telemetry after run" selected="true"/>
+                            </HBox>
+                        </VBox>
+
+                        <Label text="Possibly another section needed for inputs?" styleClass="subtitle"/>
+                        <Separator/>
+                        <VBox styleClass="subContent">
+                            <Label text="Possibly a small title needed?" styleClass="miniTitle"/>
+                            <Text wrappingWidth="750" styleClass="detail">
+                                If you need stuff other than labels, such as something for the user to input something,
+                                you can use TextField or TextArea component. There is decent documentation for these
+                                components here: http://tutorials.jenkov.com/javafx/ .
+                            </Text>
+                            <GridPane alignment="CENTER" styleClass="topPaddingBox"> <!-- gridpane sets stuff out in a grid -->
+                                <Label text="Enter some text: " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField fx:id="input1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Label text="More text: " GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="input2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            </GridPane>
+                        </VBox>
+                        <VBox styleClass="subContent">
+                            <Label text="Another small title????" styleClass="miniTitle"/>
+                            <Text wrappingWidth="750" styleClass="detail"> <!-- wrappingWidth attribute gives how many pixels width the text goes before it moves to a new line -->
+                                Maybe it's best to display some things in a grid? The GridPane is a container that can be used
+                                to line everything up in a grid. So each box in a column will have the same width as the other boxes
+                                in the column, and the same for rows. Each box in a row will have the same height as other boxes in
+                                that row. Vgap attribute on the GridPane specifies the number of pixels separating each row.
+                                Where an element goes in the grid is set by the column index and row index.
+                            </Text>
+                            <GridPane styleClass="topPaddingBox" alignment="CENTER" vgap="10">
+                                <HBox styleClass="stateCircleContainer" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Circle fill="RED" radius="10"/>
+                                </HBox>
+                                <Label text="Circle" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                <HBox styleClass="stateCircleContainer" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <Polygon points="0,0, 20,0, 20,20, 0,20" fill="BLUE" />
+                                </HBox>
+                                <Label text="Square" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <HBox styleClass="stateCircleContainer" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <Polygon points="10,0, 20,20, 0,20" fill="GREEN"/>
+                                </HBox>
+                                <Label text="Triangle" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            </GridPane>
+                        </VBox>
+
+                        <Label text="Another item" styleClass="subtitle"/>
+                        <Separator/>
+                        <VBox styleClass="subContent">
+                            <Text wrappingWidth="750" styleClass="detail">
+                                Another component that could be needed. The value of this Choicebox can be retrieved
+                                in the StarterCode controller. The same with the TextField that users can use to input stuff.
+                            </Text>
+                            <ChoiceBox fx:id="choiceBox" value="2 minutes">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList"> <!-- I don't know why this is needed, but doesn't work without it -->
+                                        <String fx:value="2 minutes" />
+                                        <String fx:value="Copied straight from stackoverflow" />
+                                        <String fx:value="15 minutes" />
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+
+                        </VBox>
+                        <VBox styleClass="bottomPaddingBox"></VBox>
+                </VBox>
+                </VBox>
+                <AnchorPane pickOnBounds="false"> <!-- anchorpane used to "anchor" the buttons to points near the edge of the page. -->
+                    <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
+                            AnchorPane.topAnchor="12"/>
+                    <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
+                            AnchorPane.bottomAnchor="12"/>
+                </AnchorPane>
+            </StackPane>
+        </GridPane>
+    </content>
+    <!-- importing the css -->
+    <stylesheets>
+        <URL value="@css/backBtn.css"/>
+        <URL value="@css/startStopBtn.css"/>
+        <URL value="@css/fontSizes.css"/>
+        <URL value="@css/searchForLightTask.css"/>
+        <URL value="@css/separator.css"/>
+        <URL value="@css/containerPadding.css"/>
+        <URL value="@css/starterCode.css"/>
+    </stylesheets>
+</ScrollPane>

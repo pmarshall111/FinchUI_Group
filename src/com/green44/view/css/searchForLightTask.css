@@ -1,0 +1,43 @@
+.logo {
+    -fx-image: url("../icons/light128px.png");
+}
+
+.tPane {
+    -fx-font-size: 20px;
+    -fx-padding: 10px;
+}
+
+.selectedCircleBox {
+    -fx-border-color: black;
+}
+
+.selectedLabel {
+    -fx-border-color: black;
+}
+
+#waitingCircle {
+    -fx-fill: #0074D9;
+}
+
+#searchCircle {
+    -fx-fill: #FFDC00;
+}
+
+#followCircle {
+    -fx-fill: #FF4136;
+}
+
+.finchStateLabel {
+    -fx-border-width: 2px 2px 2px 0px;
+    -fx-padding: 5px 10px 5px 0px; /*Is placed to the right of circle so we only want a small gap there*/
+}
+
+.stateCircleContainer {
+    -fx-border-width: 2px 0px 2px 2px;
+    -fx-padding: 5px 10px;
+}
+
+.miniTitle {
+    -fx-underline: true;
+    -fx-padding: 5px 0px;
+}

@@ -1,0 +1,22 @@
+.startStopBtn {
+    -fx-padding: 30px 60px;
+    -fx-cursor: hand;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width: 5;
+    -fx-border-color: black;
+
+    -fx-font-size: 30px;
+}
+
+.btnContainer {
+    -fx-padding: 40px 0px 20px 0px;
+}
+
+#startBtn {
+    -fx-background-color: #6CD766;
+}
+
+#stopBtn {
+    -fx-background-color: #E54831;
+}

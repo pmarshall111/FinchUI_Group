@@ -1,0 +1,13 @@
+2 files to edit - starterCode.fxml (in the view package) and the Java controller StarterCode (in the controller package)
+
+- The fxml file is there to add the components and is a little like HTML is terms of using tags for elements i.e. <HBox></HBox>
+- The controller is there so we can respond to any user interactions (clicks) using Java code.
+
+- To link the fxml file and the controller file there is an attribute on the outermost element of the fxml file called
+fx:controller="" which gives the location of the controller.
+- To respond to a click in the controller, we need to add an onMouseClicked="#methodName" attribute to the component in the
+fxml that the user will click. A method called "methodName" (same as given in the onMouseClicked attribute, but no #) has to
+be made in the controller class. Then when the fxml component is clicked, "methodName" will be called in the controller.
+
+Some example components in the startercode to edit and make whatever you need for your task. Gridpanes are good to keep
+everything looking orderly. If not sure about something send a message in the group chat.

@@ -1,0 +1,19 @@
+.bigTitle {
+    -fx-font-size: 45px;
+}
+
+.subtitle {
+    -fx-font-size: 30px;
+}
+
+.miniTitle {
+    -fx-font-size: 20px;
+}
+
+.task {
+    -fx-font-size: 20px
+}
+
+.detail {
+    -fx-font-size: 12.5px;
+}
