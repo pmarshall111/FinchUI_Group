@@ -12,8 +12,8 @@ import java.io.IOException;
 //Class serves up pages to the GUI. To change page we just call a method such as ViewManager.showMainMenu()
 public class ViewManager {
     private static Stage mainStage;
-    private final static int stageWidth = 950;
-    private final static int stageHeight = 850;
+    private final static int newWindowHeight = 700;
+    private final static int newWindowWidth = 800;
     //required to have instance of viewManager within static class because getClass() method (used to load in fxml)
     //cannot be called from static methods. But we need the static methods to access this class from the controllers.
     private static ViewManager viewManager;
@@ -32,8 +32,7 @@ public class ViewManager {
     private void showMainMenuInstance() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
-            mainStage.setScene(new Scene(root, stageWidth, stageHeight));
-            mainStage.show();
+            showWindowMaintainSize(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,8 +47,7 @@ public class ViewManager {
     private void showStarterCodeTaskInstance() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("starterCode.fxml"));
-            mainStage.setScene(new Scene(root, stageWidth, stageHeight));
-            mainStage.show();
+            showWindowMaintainSize(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,11 +60,23 @@ public class ViewManager {
     private void showSearchForLightInstance() {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("searchForLightTask.fxml"));
-            mainStage.setScene(new Scene(root, stageWidth, stageHeight));
-            mainStage.show();
+            showWindowMaintainSize(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showWindowMaintainSize(Parent root) {
+        //2 options for setting scene so that if the user changes the window dimensions, this is maintained
+        //after a page change.
+        if (mainStage.getScene() == null) {
+            mainStage.setScene(new Scene(root, newWindowWidth, newWindowHeight));
+        } else {
+            double nWidth = Math.max(newWindowWidth, mainStage.getScene().getWidth());
+            double nHeight = Math.max(newWindowHeight, mainStage.getScene().getHeight());
+            mainStage.setScene(new Scene(root, nWidth, nHeight));
+        }
+        mainStage.show();
     }
 
 }

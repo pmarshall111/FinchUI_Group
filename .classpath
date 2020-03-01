@@ -3,5 +3,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="/UI_starter_code/src"/>
 	<classpathentry kind="var" path="USER_HOME/Downloads/finch.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="out/production/UI_starter_code"/>
 </classpath>
