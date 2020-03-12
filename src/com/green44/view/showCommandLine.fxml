@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.collections.FXCollections?>
+
+
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="com.green44.controller.ShowCommandLine" fitToWidth="true">
+    <!-- scrollpane adds a scrollbar -->
+    <content>
+        <GridPane alignment="center">
+            <StackPane prefHeight="700.0" prefWidth="700.0">
+                <!-- stackpane allows elements to be stacked on top of eachother. used to position the back to main menu buttons
+                 at the top and bottom of the page.-->
+                <VBox>
+                    <!-- all the elements above are used to make the content centered within the page and adding a scrollbar.
+                    Use the stackPane to position the back buttons outside the flow of the main content -->
+
+                    <!-- the styleClass attribute applies CSS styles to the component. the styles will be in one of the
+                    css files imported at the bottom of this fxml file -->
+                    <HBox alignment="CENTER" styleClass="titleContent"> <!-- HBox arranges elements horizontally -->
+                        <Label styleClass="bigTitle" text="TASK" />
+                    </HBox>
+
+                    <VBox styleClass="mainContent">
+                        <Label text="About" styleClass="subtitle"/>
+                        <Separator/> <!-- Draws a line across the screen -->
+                        <VBox styleClass="subContent">
+                            <Text wrappingWidth="550" styleClass="detail">
+                                Add info about task here. Couple of lines of detail is good. The styleClass of detail sets
+                                a new font size for this text. Can be seen in fontSizes.css. Wrapping width is the number of
+                                pixels before the text moves onto a new line.
+                            </Text>
+                        </VBox>
+                        
+                        <Label text="Get Started" styleClass="subtitle"/>
+                        <Separator/> <!-- Draws a line across the screen -->
+                        <VBox styleClass="subContent" fx:id="mainContentContainer">
+                            <Text wrappingWidth="550" styleClass="detail">
+                                Press Start and the program will begin as a command line interface within this GUI. To quit,
+                               	just go back to the main menu.
+                            </Text>
+                            <GridPane styleClass="btnContainer" alignment="center" fx:id="buttonContainer"> <!-- allows elements to be stacked on top of eachother -->
+                                <Button fx:id="startBtn" styleClass="startStopBtn" text="Start Drawing!"
+                                        onMouseClicked="#startSearching"/>
+                            </GridPane>
+                            <VBox fx:id="cmdLineContainer" styleClass="paddingBox" visible="false" managed="false">
+                                <ScrollPane fitToHeight="true" minHeight="400" maxWidth="600" fx:id="cmdLineScrollPane">
+                                    <Text wrappingWidth="550" fx:id="cmdLineOutput" textAlignment="CENTER" />
+                                </ScrollPane>
+                                <GridPane styleClass="topPaddingBox" vgap="10" alignment="center">
+                                    <TextField fx:id="cmdLineInput" onKeyPressed="#checkIfEnter" GridPane.columnIndex="0"></TextField>
+                                    <Button onMouseClicked="#updateProgramText" GridPane.columnIndex="1">Submit</Button>
+                                </GridPane>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </VBox>
+                <AnchorPane pickOnBounds="false"> <!-- anchorpane used to "anchor" the buttons to points near the edge of the page. -->
+                    <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
+                            AnchorPane.topAnchor="12"/>
+                    <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
+                            AnchorPane.bottomAnchor="12"/>
+                </AnchorPane>
+            </StackPane>
+        </GridPane>
+    </content>
+    <!-- importing the css -->
+    <stylesheets>
+            <URL value="@css/backBtn.css"/>
+        <URL value="@css/startStopBtn.css"/>
+        <URL value="@css/fontSizes.css"/>
+        <URL value="@css/searchForLightTask.css"/>
+        <URL value="@css/separator.css"/>
+        <URL value="@css/containerPadding.css"/>
+        <URL value="@css/starterCode.css"/>
+    </stylesheets>
+</ScrollPane>

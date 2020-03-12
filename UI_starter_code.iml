@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module classpath="eclipse" classpath-dir="$MODULE_DIR$" type="JAVA_MODULE" version="4" />
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <varelement var="jar://$USER_HOME$/Downloads/finch.jar!/" value="USER_HOME/Downloads/finch.jar" />
+    <src_description expected_position="0" />
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/out/production/UI_starter_code" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module" module-name="UI_starter_code/src" />
+    <orderEntry type="module-library">
+      <library name="finch.jar">
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/finch.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

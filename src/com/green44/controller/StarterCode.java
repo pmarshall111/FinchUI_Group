@@ -39,6 +39,8 @@ public class StarterCode {
         stopBtn.setVisible(true);
         startBtn.setVisible(false);
         //in here we would start the task as well
+
+        
     }
 
     @FXML

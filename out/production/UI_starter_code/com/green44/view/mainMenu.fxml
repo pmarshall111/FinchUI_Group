@@ -39,7 +39,7 @@
                     <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10" prefWrapLength="550.0" styleClass="subContent" vgap="10" HBox.hgrow="NEVER">
                         <Button fx:id="lightBtn" onMouseClicked="#goToSearchForLight" styleClass="task" text="Search for Light" />
                         <Button fx:id="shapeBtn" onMouseClicked="#goToStarterCode" styleClass="task" text="Draw Shape" />
-                        <Button fx:id="naviBtn" styleClass="task" text="Navigate" />
+                        <Button fx:id="naviBtn" onMouseClicked="#goToCmdLineCode" styleClass="task" text="Navigate" />
                         <Button fx:id="zigBtn" styleClass="task" text="Zig-zag" />
                         <Button fx:id="objectBtn" styleClass="task" text="Detect Object" />
                         <Button fx:id="danceBtn" styleClass="task" text="Dance" />

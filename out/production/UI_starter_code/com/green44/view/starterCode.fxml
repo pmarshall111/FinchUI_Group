@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.scene.text.Text?>
-
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.collections.FXCollections?>
+
+<!-- fx:controller attribute on the furthest out element of fxml gives the location of the controller for this fxml file.
+i.e. the class that controlls the components from this file -->
 <ScrollPane xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml" fx:controller="com.green44.controller.StarterCode" fitToWidth="true">
+    <!-- scrollpane adds a scrollbar -->
     <content>
         <GridPane alignment="center">
             <StackPane prefHeight="700.0" prefWidth="800.0">
+                <!-- stackpane allows elements to be stacked on top of eachother. used to position the back to main menu buttons
+                 at the top and bottom of the page.-->
                 <VBox>
                     <!-- all the elements above are used to make the content centered within the page and adding a scrollbar.
                     Use the stackPane to position the back buttons outside the flow of the main content -->
-                    <HBox alignment="CENTER" styleClass="titleContent">
+
+                    <!-- the styleClass attribute applies CSS styles to the component. the styles will be in one of the
+                    css files imported at the bottom of this fxml file -->
+                    <HBox alignment="CENTER" styleClass="titleContent"> <!-- HBox arranges elements horizontally -->
                         <Label styleClass="bigTitle" text="TASK" />
                     </HBox>
 
                     <VBox styleClass="mainContent">
                         <Label text="Get Started" styleClass="subtitle"/>
-                        <Separator/>
+                        <Separator/> <!-- Draws a line across the screen -->
                         <VBox styleClass="subContent">
                             <Text wrappingWidth="750" styleClass="detail">
                                 Add info about task here. Couple of lines of detail is good. The styleClass of detail sets
                                 a new font size for this text. Can be seen in fontSizes.css. Wrapping width is the number of
                                 pixels before the text moves onto a new line.
                             </Text>
-                            <StackPane styleClass="btnContainer">
+                            <StackPane styleClass="btnContainer"> <!-- allows elements to be stacked on top of eachother -->
                                 <Button fx:id="stopBtn" styleClass="startStopBtn" text="Stop" onMouseClicked="#endSearch"
                                         visible="false"/>
                                 <Button fx:id="startBtn" styleClass="startStopBtn" text="Start Drawing!"
                                         onMouseClicked="#startSearching"/>
                             </StackPane>
                             <HBox alignment="CENTER">
-                                <CheckBox fx:id="showTelemetry" text="Show telemetry after run" selected="true"/>
+                                <CheckBox fx:id="checkBox" text="Show telemetry after run" selected="true"/>
                             </HBox>
                         </VBox>
 
@@ -53,7 +58,7 @@
                                 you can use TextField or TextArea component. There is decent documentation for these
                                 components here: http://tutorials.jenkov.com/javafx/ .
                             </Text>
-                            <GridPane alignment="CENTER" styleClass="topPaddingBox">
+                            <GridPane alignment="CENTER" styleClass="topPaddingBox"> <!-- gridpane sets stuff out in a grid -->
                                 <Label text="Enter some text: " GridPane.columnIndex="0" GridPane.rowIndex="0" />
                                 <TextField fx:id="input1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                 <Label text="More text: " GridPane.columnIndex="0" GridPane.rowIndex="1" />
@@ -62,7 +67,7 @@
                         </VBox>
                         <VBox styleClass="subContent">
                             <Label text="Another small title????" styleClass="miniTitle"/>
-                            <Text wrappingWidth="750" styleClass="detail">
+                            <Text wrappingWidth="750" styleClass="detail"> <!-- wrappingWidth attribute gives how many pixels width the text goes before it moves to a new line -->
                                 Maybe it's best to display some things in a grid? The GridPane is a container that can be used
                                 to line everything up in a grid. So each box in a column will have the same width as the other boxes
                                 in the column, and the same for rows. Each box in a row will have the same height as other boxes in
@@ -94,7 +99,7 @@
                             </Text>
                             <ChoiceBox fx:id="choiceBox" value="2 minutes">
                                 <items>
-                                    <FXCollections fx:factory="observableArrayList">
+                                    <FXCollections fx:factory="observableArrayList"> <!-- I don't know why this is needed, but doesn't work without it -->
                                         <String fx:value="2 minutes" />
                                         <String fx:value="Copied straight from stackoverflow" />
                                         <String fx:value="15 minutes" />
@@ -106,7 +111,7 @@
                         <VBox styleClass="bottomPaddingBox"></VBox>
                 </VBox>
                 </VBox>
-                <AnchorPane pickOnBounds="false">
+                <AnchorPane pickOnBounds="false"> <!-- anchorpane used to "anchor" the buttons to points near the edge of the page. -->
                     <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
                             AnchorPane.topAnchor="12"/>
                     <Button text="Back to Main Menu" styleClass="backBtn" onMouseClicked="#goToMainMenu" AnchorPane.leftAnchor="25.0"
@@ -115,6 +120,7 @@
             </StackPane>
         </GridPane>
     </content>
+    <!-- importing the css -->
     <stylesheets>
         <URL value="@css/backBtn.css"/>
         <URL value="@css/startStopBtn.css"/>
@@ -122,5 +128,6 @@
         <URL value="@css/searchForLightTask.css"/>
         <URL value="@css/separator.css"/>
         <URL value="@css/containerPadding.css"/>
+        <URL value="@css/starterCode.css"/>
     </stylesheets>
 </ScrollPane>

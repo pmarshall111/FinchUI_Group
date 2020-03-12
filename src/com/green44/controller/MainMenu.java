@@ -33,5 +33,10 @@ public class MainMenu {
     private void goToStarterCode() {
         ViewManager.showStarterCodeTask();
     }
+    
+    @FXML
+    private void goToCmdLineCode() {
+        ViewManager.showCmdLineTask();
+    }
 
 }

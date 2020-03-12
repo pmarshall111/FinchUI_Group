@@ -37,6 +37,21 @@ public class ViewManager {
             e.printStackTrace();
         }
     }
+    
+  //TODO: need to rename this method to your task
+    public static void showCmdLineTask() {
+        viewManager.showCmdLineTaskInstance();
+    }
+
+    //TODO: rename this method also
+    private void showCmdLineTaskInstance() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("showCommandLine.fxml"));
+            showWindowMaintainSize(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     //TODO: need to rename this method to your task
     public static void showStarterCodeTask() {

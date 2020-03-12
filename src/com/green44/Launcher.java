@@ -13,7 +13,8 @@ public class Launcher extends Application {
     public void start(Stage primaryStage) throws Exception{
 //        initialisedFinch = new Finch();
         ViewManager.init(primaryStage);
-        ViewManager.showMainMenu();
+//        ViewManager.showMainMenu();
+        ViewManager.showCmdLineTask();
     }
 
     public static void main(String[] args) {
